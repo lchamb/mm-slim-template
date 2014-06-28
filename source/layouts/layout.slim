@@ -12,6 +12,9 @@ html
     = stylesheet_link_tag "all"
   
   body
-    = yield
+    header
+    main
+      = yield
+    footer
 
     = javascript_include_tag "all"
