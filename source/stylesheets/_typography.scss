@@ -32,6 +32,24 @@ $body-text-color:         #232330;
 $text-accent-color:       #bc131a;
 $text-muted-color:        #889;
 
+// typescale function
+$rem-base: 16px !default;
+ 
+@function rem-calc($pxWidth) {
+  @return $pxWidth / $rem-base * 1rem;
+}
+ 
+// typescale functions!! for yer typescale
+@function typescale($step) {
+  @if $step == 1 { @return 1rem * $scale * $scale * $scale * $scale; }
+  @else if $step == 2 { @return 1rem * $scale * $scale * $scale; }
+  @else if $step == 3 { @return 1rem * $scale * $scale; }
+  @else if $step == 4 { @return 1rem * $scale; }
+  @else if $step == 5 { @return 1rem; }
+  @else if $step == 6 { @return 0.85rem; }
+  @else { @return 1rem; }
+}
+
 
 html,
 body {
@@ -152,14 +170,12 @@ blockquote {
 
 // media queries
 @media #{$small-up} {
-  h1 { font-size: 1rem * $scale * $scale * $scale * $scale; }
-  h2 { font-size: 1rem * $scale * $scale * $scale; }
-  h3 { font-size: 1rem * $scale * $scale; }
-  h4 { font-size: 1rem * $scale; }
-  h5 { font-size: 1rem; }
-  h6 { font-size: 1rem; }
+  h1 { font-size: typescale(1); }
+  h2 { font-size: typescale(2); }
+  h3 { font-size: typescale(3); }
+  h4 { font-size: typescale(4); }
+  h5 { font-size: typescale(5); }
+  h6 { font-size: typescale(6); }
 
-  p.lead {
-    font-size: 1rem * $scale;
-  }
+  p.lead { font-size: typescale(4); }
 }
