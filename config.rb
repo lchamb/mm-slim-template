@@ -38,7 +38,7 @@
 # Reload the browser automatically whenever files change
 activate :livereload
 
-# Add vendor prefixes to CSS
+# Automatically prefix CSS
 activate :autoprefixer
 
 # Methods defined in the helpers block are available in templates
